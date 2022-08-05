@@ -1,0 +1,24 @@
+@use "@/styles/app" as *;
+
+// alerts
+#alerts {
+  .v-snack__wrapper {
+    display: flex;
+    border-radius: $border-card;
+    clip-path: $clip-path-2;
+    flex-direction: row-reverse !important;
+    padding: 1em;
+    animation: moveright .5s $ease-return;
+    .alert-content {
+      gap: 0.2em;
+      span {color: #FFFFFF !important}
+    }
+    .v-btn {
+      span {
+        color: $clr-label;
+        transition: 0.5s $ease;
+        &:hover {color: red !important}
+      }
+    }
+  }
+}

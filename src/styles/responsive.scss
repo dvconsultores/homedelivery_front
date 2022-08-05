@@ -1,0 +1,116 @@
+// // // // ALTAS RESOLUCIONES // // // //
+@media (min-width: 1400px) {
+}
+@media (min-width: 1900px) {
+  html {
+    font-size: 19px !important;
+    #navbar {font-size: 19px !important;}
+    #headerApp {font-size: 19px !important;}
+    #home {font-size: 19px !important;}
+  }
+}
+
+// // // MIN-WIDTH ARRIBA
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+// // // MAX-WIDTH ABAJO
+
+// // // // MOBILE // // // //
+@media (max-width: 880px) and (max-height: 1180px) {
+  // html {
+  //   font-size: 16px !important;
+  // }
+  .v-main__wrap {
+    margin: 0 !important;
+  }
+  ///////////////////////////////////////
+  #navbar {
+    font-size: 16px;
+    flex-direction: row;
+    left: 0;
+    right: 0;
+    top: auto !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: clamp(90px, 19vw, 5.5em) !important;
+    padding-block: 0 !important;
+    background-color: var(--clr-navbar);
+    .contnavbar {
+      width: 100% !important;
+      height: 100% !important;
+      align-items: center;
+      justify-content: center;
+      .conticon {
+        width: 50% !important;
+        height: 100% !important;
+        border-radius: 0 !important;
+      }
+    }
+  }
+  
+  ///////////////////////////////////////
+  #headerApp {
+    font-size: 16px;
+    max-width: 100% !important;
+  }
+  
+  ///////////////////////////////////////
+  // #home {
+  //   .contdown {
+  //     padding-inline: 1% !important;
+  //     h1 {
+  //       padding-inline: 4% !important;
+  //     }
+  //   }
+  // }
+}
+@media (max-width: 600px) and (max-height: 1180px) {
+  #home {
+    .contup {
+      flex-direction: column;
+      // padding-inline: clamp(0em, 8vw, 4em) !important;
+      .conttag {
+        transform: rotate(0deg) translateX(0%) !important;
+        width: max-content !important;
+      }
+    }
+    .contdown {
+      h1 {
+        padding-inline: clamp(0em, 8vw, 4em) !important;
+      }
+    }
+  }
+}
+
+// TAMAÑO MINIMO
+@media (max-width: 400px) {
+  #headerApp {
+    .v-toolbar__content {
+      padding-inline: 0 !important;
+      .contheader {
+        .contleft {
+          gap: clamp(0em, 1vw, 0.625em) !important;
+        }
+        .contright {
+          gap: clamp(0em, 1vw, 0.625em) !important;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 310px) {
+}
+
+@media (max-height: 750px) and (min-width: 881px) {
+  #navbar {
+    font-size: 14px !important;
+    .contlogo {
+      width: min(90%, 8em);
+    }
+  }
+}
+@media (max-height: 630px) and (min-width: 881px) {
+  #navbar {
+    font-size: 12px !important;
+  }
+}

@@ -1,0 +1,42 @@
+@use "@/styles/app" as *;
+
+//////////////////////////////////////////////////////////////////////
+// // // menuForms // // //
+//////////////////////////////////////////////////////////////////////
+.verificatorMiPerfil {
+  background-color: var(--clr-alerta) !important;
+  box-shadow: none !important;
+  clip-path: $clip-path;
+  border-radius: 28px;
+  padding: clamp(0.7em, 2vw, 1em) !important;
+  h6 {
+    color: $clr-label;
+    font-weight: 700 !important;
+  }
+  .v-btn {
+    min-width: max-content;
+    min-height: max-content;
+    border-radius: 20px;
+    img {
+      width: 1.5em;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
+// // // modalDirection // // //
+//////////////////////////////////////////////////////////////////////
+#modalDirection {
+  border-radius: $border-card;
+  clip-path: $clip-path-2;
+  box-shadow: $sombra-card-2 !important;
+  overflow-x: hidden;
+  position: relative;
+  height: min(100vh, 40em);
+  @include media(max, small) {height: 90vh; margin-block: auto}
+  .close {
+    --distance: 1.5em;
+    @include absolute(auto, var(--distance), var(--distance));
+    z-index: 2 !important;
+  }
+}

@@ -1,0 +1,161 @@
+@use "@/styles/app" as *;
+
+//////////////////////////////////////////////////////////////////////
+// // // mi menu // // //
+//////////////////////////////////////////////////////////////////////
+#miMenu {
+  @media (max-width: 1100px) {font-size: 15px}
+  .contmimenu {
+    .add {
+      filter: $sombra-filter;
+      padding: 1.6em;
+      img {
+        width: 2em;
+        transform: translateX(5%);
+      }
+    }
+    .contup {
+      padding-top: 2em;
+      gap: 1em;
+    }
+    .contdown {
+      display: grid;
+      grid-template-columns: 20% repeat(2, 1fr);
+      grid-gap: 0 clamp(1em, 1.5vw, 1.5em);
+      @media (max-width: 1100px) {
+        grid-template-columns: 25% repeat(2, 1fr) !important;
+        @media (max-width: 880px) and (max-height: 1180px) {
+          grid-template-columns: repeat(2, 1fr) !important;
+          @media (max-width: 500px) {
+            grid-template-columns: repeat(1, 1fr) !important;
+            grid-gap: 0.2em !important;
+          }
+        }
+      }
+      position: relative;
+      padding-bottom: 2em;
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: #191919;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+        width: 90%;
+        height: 1px;
+        filter: $sombra-filter;
+      }
+      .v-card {
+        #precio {width: 50%}
+      }
+      .v-card:nth-child(1) {grid-row: span 2}
+      .contprecio {
+        gap: clamp(.8em, 2vw, 2em) !important;
+        .v-btn {
+          background: var(--clr-btn);
+          clip-path: $clip-path;
+          border-radius: 28px;
+          padding: clamp(1.5em, 2vw, 2em) clamp(1em, 2vw, 2em);
+          box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+          transition: 0.2s ease-in-out;
+          span {
+            color: var(--clr-text-btn);
+            font-weight: 600;
+            letter-spacing: -0.1ch;
+          }
+        }
+      }
+    }
+    .contListMenu {
+      gap: clamp(1em, 2vw, 2em);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%,450px),1fr));
+      @include media(max, 330px) {font-size: 13px !important}
+      &::-webkit-scrollbar-thumb {border-radius: $border-btn}
+      .firstAside {max-width: max-content !important}
+      .v-card {
+        // max-width: 98%;
+        // margin-right: auto;
+        // padding-bottom: 2em;
+        position: relative;
+        line-height: 1.2;
+        gap: clamp(1em, 2vw, 2em);
+        *{text-transform: none !important}
+        .near {width: 1em !important}
+        &::before {
+          content: "";
+          @include absolute(0,auto,0,0);
+          margin-inline: auto;
+          background-color: $clr-btn;
+          width: 80%;
+          height: 1px;
+        }
+        .foto {
+          --size: 7em;
+          width: var(--size);
+          height: var(--size);
+          @include media(max, 600px) {
+            --size: 10em;
+            width: var(--size);
+            height: var(--size);
+          }
+          border-radius: $border-btn;
+          background-color: var(--clr-card-2);
+          padding: 0.5em;
+        }
+        .child1 {
+          max-width: 25em;
+          gap: 0.2em;
+          label {
+            width: max-content;
+            position: relative;
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              left: 0;
+              margin-inline: auto;
+              width: 100%;
+              height: 2px;
+              border: 1px solid $clr-btn-2;
+            }
+          }
+        }
+        .controls {
+          .v-btn.add {
+            border: 1px solid $clr-text-btn;
+            span {color: $success !important}
+            @include media(min, 600px) {
+              padding: .5em !important;
+              img {width: 1.4em}
+            }
+          }
+          .v-btn:last-of-type {
+            background-color: $warning !important;
+            width: max-content;
+            height: max-content;
+            padding: .13em;
+            filter: $sombra-filter;
+            span {color: $error !important}
+            img {width: 3em}
+            @include media(min, 600px) {img {width: 2em}}
+          }
+        }
+      }
+      @include media(max, 600px) {
+        .firstAside {display: contents}
+        .v-card {
+          display: grid !important;
+          grid-template-columns: repeat(2,1fr) !important;
+          .controls {
+            flex-direction: row !important;
+            grid-column: 2;
+            grid-row: 1;
+          }
+        }
+      }
+    }
+  }
+}

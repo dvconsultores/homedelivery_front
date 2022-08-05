@@ -1,0 +1,72 @@
+@import '~vuetify/src/styles/styles.sass';
+
+// Sidebar //
+$drawer-items-padding:                     32px !default;
+$navigation-drawer-mini-variant-width:     96px!important;
+
+// Layout //
+$body-bg: #20232C !default;
+$content-padding:                           24px;
+$clip-path:  polygon(0% 6%, 50% 0, 100% 6%, 100% 50%, 100% 94%, 50% 100%, 0% 94%, 0 50%);
+$clip-path-2:  polygon(0% 2%, 50% 0, 100% 2%, 100% 50%, 100% 98%, 50% 100%, 0% 98%, 0 50%);
+$sombra-filter: drop-shadow(0px 4px 1px rgba(0, 0, 0, 0.3));
+
+// Colors //
+$primary:           #536DFE;
+$secondary:         #FF5C93;
+$error:             #ff4081;
+$warning:           #FFC260;
+$success:           #3CD4A0;
+$info:              #9013FE;
+$text-color:        #6e6e6e;
+$text-grey:         #b9b9b9;
+$title-grey:        #4a4a4a;
+$clr-text-btn:      #A4FDDF;
+$clr-btn:           #3E2185;
+$clr-btn-2:         #A054BA;
+$clr-btn-3:         #EED5FA;
+$clr-label:         #9B9C9D;
+$clr-hover:         #FF2C75;
+
+$card-title-color:  $text-color;
+
+// Typography //
+$h1-font-size:                3rem !default;      // 28px
+$h2-font-size:                2rem !default;       // 24px
+$h3-font-size:                1.64rem !default;     // 22px
+$h4-font-size:                1.5rem !default;     // 20px
+$h5-font-size:                1.285rem !default;         // 16px
+$h6-font-size:                1.142rem !default;     // 14px
+$font-size-header:            clamp(0.7em, 1.2vw, 0.9em);
+$font-size-navbar:            clamp(0.6em, 1.2vw, 0.8em);
+
+// Card //
+$card-shadow: 0 3px 11px 0 #111011, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A;
+$sombra-card: 0px 4px 50px rgba(0, 0, 0, 0.05);
+$border-card: 60px;
+$sombra-card-2: inset 0 0 30px -15px rgba(black, .5);
+
+// Buttons //
+$button-shadow: 0px 3px 11px 0px #E8EAFC, 0 3px 3px -2px #B2B2B21A, 0 1px 8px 0 #9A9A9A1A;
+$sombra-btn: 0px 4px 4px rgba(0, 0, 0, 0.2);
+$border-btn: 20px;
+
+// hover //
+$ease: cubic-bezier(0.23, 1, 0.32, 1);
+$ease-return: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$skew-right: skewX(12deg) translateX(1px);
+$skew-left: skewX(-12deg) translateX(-1px);
+
+// responsive
+:root {
+  --border-responsive: 30px;
+  @media (max-width: 880px) and (max-height: 1180px) {
+    --border-responsive: 20px !important;
+  }
+  @media (max-width: 500px) and (max-height: 1180px) {
+    --border-responsive: 10px !important;
+  }
+  @media (min-width: 881px) and (max-height: 700px) {
+    --border-responsive: 20px !important;
+  }
+}

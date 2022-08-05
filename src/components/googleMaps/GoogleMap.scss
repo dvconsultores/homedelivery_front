@@ -1,0 +1,163 @@
+@use "@/styles/app" as *;
+
+/* googleMap */
+.mapContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  >*:not(.vue-map-container) {z-index: 2}
+  .searchIcon {
+    --distance: 27px;
+    position: absolute;
+    left: var(--distance);
+    top: var(--distance);
+    margin: auto;
+    background-color: var(--clr-card-2);
+    z-index: 3 !important;
+    pointer-events: none;
+  }
+  .inputGoogleSearch {
+    --distance: 20px;
+    --hideSize: 50px;
+    @include absolute(var(--distance),var(--distance));
+    width: var(--hideSize);
+    height: var(--hideSize);
+    background-color: var(--clr-card-2) !important;
+    border: 2px solid $clr-btn-2;
+    border-radius: $border-card !important;
+    overflow: hidden;
+    z-index: 2;
+    transition: .5s $ease-return;
+    padding-inline: 1em;
+    outline: none !important;
+    &.active {width: min(60%,20em); padding-inline: 3em 1em;}
+  }
+  // prefers default into map //
+  .vue-map-container {
+    --distanceControls: -4px;
+    width: inherit;
+    height: inherit;
+    box-shadow: 0 0 6px 5px rgba(0, 0, 0, .2);
+    overflow: hidden;
+    .vue-map {width: inherit;height: inherit}
+    div[draggable="false"]:not(.gm-style-cc) {border-radius: $border-btn !important;background-color: $clr-btn-2 !important}
+    .gm-control-active {
+      background-color: $clr-btn-2 !important;
+      border-radius: 50% !important;
+      img {filter: invert(100%) contrast(10)}
+    }
+    .gmnoprint {transform: translateX(var(--distanceControls))}
+    .gm-fullscreen-control {transform: translate(calc(var(--distanceControls) * 2), calc(var(--distanceControls) * -2))}
+    .localImg {width: 10em}
+  }
+}
+.marker {
+  gap: 1em !important;
+  flex-wrap: wrap;
+  .divcol {
+    h4 {margin-bottom: clamp(.2em, 5vw, .5em) !important;font-size: var(--step-em-0) !important}
+    span {font-size: var(--step-em--1) !important}
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
+// // // restaurantes // // //
+//////////////////////////////////////////////////////////////////////
+#restaurante-tienda {
+  .vue-map-container {
+    // aspect-ratio: 16/8;
+    border-radius: $border-btn !important;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
+// // // pedido // // //
+//////////////////////////////////////////////////////////////////////
+#pedido {
+  .vue-map-container {
+    border-radius: $border-card;
+    border: 4px solid $clr-btn;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
+// // // modalDirection // // //
+//////////////////////////////////////////////////////////////////////
+#modalDirection {
+  .textField_direccion {
+    .v-input__slot {clip-path: none !important;border: 1.5px solid #000000}
+    @include absolute(50%, 10px);
+    transform: translateX(-50%);
+    z-index: 3 !important;
+    @include animation(.5s $ease-return) {
+      0% {transform: translate(-50%, -95%)}
+      100% {transform: translate(-50%, 0)}
+    }
+  }
+  .botones2 {
+    @include absolute(50%, 85px);
+    transform: translateX(-50%);
+    z-index: 2 !important;
+    @include animation(.5s $ease-return) {
+      0% {transform: translate(-50%, -95%)}
+      100% {transform: translate(-50%, 0)}
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
+// // // modalDirection // // //
+//////////////////////////////////////////////////////////////////////
+#modalDirection {
+  .vue-map-container {
+    --distanceControls: -10px;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
+// // // modalShopCart // // //
+//////////////////////////////////////////////////////////////////////
+#modalShopCart {
+  .searchIcon {
+    --distance: 1.3em;
+    --hideSize: 15px;
+    @include absolute(var(--distance),var(--distance));
+    width: var(--hideSize);
+    height: var(--hideSize);
+  }
+  .inputGoogleSearch {
+    --distance: .4em;
+    --hideSize: 40px;
+    font-size: 12px;
+    @include absolute(var(--distance),var(--distance));
+    width: var(--hideSize);
+    height: var(--hideSize);
+    &.active {width: min(70%,20em); padding-inline: 3em 1em}
+  }
+  .vue-map-container {
+    --distanceControls: -0px;
+    --sizeControls: 30px;
+    div[draggable="false"]:not(.gm-style-cc) {
+      width: var(--sizeControls) !important; height: calc(var(--sizeControls)*2) !important;
+    }
+    .gm-control-active {
+      width: var(--sizeControls) !important; height: var(--sizeControls) !important;
+      img {width: 10px !important;}
+    }
+    .gm-bundled-control {bottom: 5px !important; right: 0 !important;}
+    .gm-fullscreen-control {
+      transform: translate(calc(var(--distanceControls) * 2), calc(var(--distanceControls) * -2))
+    }
+    .localImg {width: 6em}
+  }
+
+  .marker {
+    font-size: 10px !important;
+    gap: 1em !important;
+    flex-wrap: wrap;
+    .divcol {
+      h4 {margin-bottom: clamp(.2em, 5vw, .5em) !important;font-size: var(--step-em-0) !important}
+      span {font-size: var(--step-em--1) !important}
+    }
+  }
+}

@@ -1,0 +1,197 @@
+@use "@/styles/app" as *;
+
+//////////////////////////////////////////////////////////////////////
+// // // restaurantes // // //
+//////////////////////////////////////////////////////////////////////
+#restaurantes {
+  --padding-g:  calc(5% + 1em) 5%;
+  @include media(max, small) {--padding-g: 5% 5%}
+  .contup {
+    padding-top: 2em;
+    padding-inline: var(--padding-g);
+  }
+  .contdown {
+    padding-inline: var(--padding-g);
+    min-height: 363px;
+    .conttag {
+      position: sticky;
+      margin-left: -6.5%;
+      top: 50%;
+      transform: rotate(-90deg);
+      width: 5%;
+      @include animation(14s $ease-return infinite alternate) {from {transform: rotate(-93deg);}to {transform: rotate(-80deg)}}
+      @include media(max, small) {
+        position: static !important;
+        animation: none !important;
+        transform: none !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+      }
+    }
+    .contRestaurantList {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, clamp(18em, 20vw, 20em)), 1fr));
+      grid-gap: 1em;
+      @include media(max, medium) {grid-gap: 2em}
+      .card {
+        width: clamp(18em, 20vw, 20em);
+        height: max-content;
+        gap: clamp(0.5em, 1vw, 1em);
+        border-radius: $border-card;
+        clip-path: $clip-path-2;
+        box-shadow: $sombra-card-2 !important;
+        @include media(max, small) {margin-inline: auto}
+        &:is(:hover, :focus) .images {mix-blend-mode: multiply;}
+        .images {
+          width: 100% !important;
+          height: 15em;
+        }
+        .contcard {
+          padding-inline: 2em;
+          padding-bottom: 1.8em;
+          gap: 1em;
+          a {
+            width: max-content;
+            color: var(--clr-btn) !important;
+            line-height: 1.5ch;
+            letter-spacing: -0.15ch;
+            position: relative;
+            &:is(:hover, :focus):before {
+              content: "";
+              position: absolute;
+              inset: -2px;
+              background-color: #3d218534;
+              border: 2px solid var(--clr-btn);
+              border-radius: var(--border-responsive);
+              animation: hover 5s $ease-return infinite alternate;
+            }
+          }
+          span {color: $clr-label !important}
+        }
+      }
+    }
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////////
+// // // restaurante tienda // // //
+//////////////////////////////////////////////////////////////////////
+
+#restaurante-tienda {
+  --height: 300px;
+  @include media(min, small) {padding-top: 2em};
+  padding-inline: clamp(0, 2.75vw, 2.75em) 5%;
+  @include media(max, small) {padding-inline: clamp(0, 2.75vw, 2.75em);}
+  .contbanner {
+    display: grid;
+    @include media(min, small) {grid-template-columns: 1fr 30%}
+    // display: flex;
+    // flex-wrap: wrap;
+    gap: clamp(1em, 2vw, 2em);
+    // img {mix-blend-mode: multiply}
+    .v-image {
+      // flex: 1 1 500px;
+      border-radius: $border-btn $border-btn 0 0;
+      height: var(--height) !important;
+      .backBtn {
+        @include absolute(.5em,.5em);
+        animation: moveleft .5s $ease-return;
+      }
+      .contLike {
+        --size: clamp(2.5em, 2.7vw, 2.7em);
+        top: calc(.5em + 30px);
+        right: 10px;
+        .contimg {
+          &::after {
+            width: calc(var(--size) - 1.6em);
+            height: calc(var(--size) - 1.6em) !important;
+            inset: 10%;
+          }
+          img {width: 65% !important}
+        }
+      }
+      span {
+        @include absolute(auto, .5em, .5em);
+        text-transform: lowercase !important;
+        font-weight: 600 !important;
+        color: #FFFFFF !important;
+      }
+    }
+    .contmapa {
+      // flex: 1 1 300px;
+      height: var(--height);
+      gap: 1em;
+      span {line-height: 1 !important}
+    }
+  }
+  .contdown {
+    gap: 2em;
+    .contRestaurantList {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, clamp(18em, 20vw, 20em)), 1fr));
+      grid-gap: 1em;
+      @include media(max, medium) {grid-gap: 2em}
+      .card {
+        height: max-content;
+        gap: clamp(0.5em, 1vw, 1em);
+        border-radius: $border-card;
+        clip-path: $clip-path-2;
+        box-shadow: $sombra-card-2!important;
+        overflow: hidden;
+        .contImages {
+          cursor: pointer;
+          height: 15em;
+          overflow: hidden;
+          position: relative;
+          .images {
+            width: 100%;
+            height: 100%;
+            transition: .5s $ease-return;
+            &:is(:hover, :focus) {
+              mix-blend-mode: multiply;
+              transform: scale(1.05);
+            }
+          }
+          .customeTooltip {
+            // @include absolute(var(--x), var(--y));
+            position: absolute;
+            top: var(--y);
+            left: var(--x);
+            transform: translate(10px, -20px);
+            background-color: $clr-btn;
+            color: #FFFFFF !important;
+            border-radius: 7px;
+            padding: .2em .8em;
+            opacity: 0;
+            text-align: end;
+            z-index: 1;
+            pointer-events: none;
+            transition: opacity .2s $ease;
+          }
+          &:hover .customeTooltip {opacity: 1}
+        }
+        .contcard {
+          padding-inline: 2em;
+          padding-bottom: 1.8em;
+          gap: 1em;
+          p {
+            width: max-content;
+            line-height: 1.5ch;
+            letter-spacing: -0.15ch;
+          }
+          .contPrice {
+            font-size: clamp(1em, 1.2vw, 1.2em);
+            .logoNear {
+              --size: 1em;
+              width: var(--size);
+              height: var(--size);
+            }
+            span {color: $clr-label}
+            .price {color: mix($clr-label, #000000) !important}
+          }
+        }
+      }
+    }
+  }
+}

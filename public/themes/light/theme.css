@@ -1,0 +1,48 @@
+/* global colors */
+:root {
+  --bg: #FFFFFF;
+  /*  */
+  --clr: #111011;
+  --clr-inv: #FFFFFF;
+  /*  */
+  --clr-card: #FFFFFF;
+  --clr-card-inv: #000000;
+  --clr-card-2: rgba(229, 229, 229);
+  /*  */
+  --clr-text-btn: #A4FDDF;
+  --clr-btn: #3E2185;
+  --clr-text-btn-inv: #3E2185;
+  --clr-btn-inv: #A4FDDF;
+  --clr-text-btn-active: #FFFFFF;
+  --clr-btn-active: #3E2185;
+  --clr-btn-2: #A054BA;
+  --clr-btn-3: #EED5FA;
+  /*  */
+  --clr-navbar: #FFFFFF;
+  --clr-scroll: #3E2185;
+  --clr-card-scroll: rgb(224, 224, 224);
+  /*  */
+  --clr-alerta: #CFCFCF;
+  --clr-label: #3E2185;
+  --clr-label-2: #9B9C9D;
+  --mix-blend-mode: multiply;
+}
+
+/* personal clases */
+.clr {color: var(--clr) !important}
+.clr_inv {color: var(--clr-inv) !important}
+.clr_card {background-color: var(--clr-card) !important}
+.clr_card_inv {background-color: var(--clr-card-inv) !important}
+.filter {filter: invert(0%) !important}
+.filter_inv {filter: invert(100%) !important}
+.clr_svg {fill: var(--clr) !important}
+.clr_svg_inv {fill: var(--clr-inv) !important}
+.clr_card-2 {background-color: var(--clr-card-2) !important}
+.clr_btn {background-color: var(--clr-btn) !important}
+.clr_text_btn {color: var(--clr-text-btn) !important}
+.clr_btn_inv {background-color: var(--clr-btn-inv) !important}
+.clr_text_btn-inv {color: var(--clr-text-btn-inv) !important}
+.clr_label {color: var(--clr-label) !important}
+.clr_label_2 {color: var(--clr-label-2) !important}
+
+/* ////////////////////////////////////////////// */

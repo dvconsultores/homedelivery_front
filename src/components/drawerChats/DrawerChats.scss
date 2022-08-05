@@ -1,0 +1,47 @@
+@use "@/styles/app" as *;
+
+// drawerChats
+#drawerChats {
+  overscroll-behavior: contain;
+  * {text-transform: none !important}
+  .floatingButton {
+    --size: 3.5em;
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    animation: moveright .5s $ease-return;
+    @include media(max, x-small) {right: calc(2em - 24px);}
+    @include media(max, small) {
+      --size: 3em;
+      bottom: auto !important;
+      top: 6.5em;
+    }
+    .v-badge__badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF !important;
+      width: calc(var(--size) - 1.5em);
+      height: calc(var(--size) - 1.5em);
+      border-radius: 50%;
+      transform: translate(-3px, 3px);
+    }
+    .v-btn {
+      width: var(--size);
+      height: var(--size);
+      background-color: $clr-btn;
+      .v-icon {font-size: calc(var(--size) - .9em)}
+    }
+  }
+  .v-navigation-drawer__content {
+    display: grid;
+    padding-block: 2em;
+    .contPedidos {
+      h3 {}
+    }
+    .vac-card-window {
+      box-shadow: none !important;
+      .vac-svg-button.vac-add-icon {display: none}
+    }
+  }
+}

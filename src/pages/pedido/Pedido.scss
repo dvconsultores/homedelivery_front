@@ -1,0 +1,131 @@
+@use "@/styles/app" as *;
+
+//////////////////////////////////////////////////////////////////////
+// // // pedido // // //
+//////////////////////////////////////////////////////////////////////
+#pedido {
+  .contup {
+    padding-top: 2em;
+    padding-inline: 5%;
+    h1 {
+      @include animation(8s $ease-return infinite alternate) {
+        0% {transform:  translateX(1em) rotate(2deg)}
+        10% {transform:  translateX(0em) rotate(-2deg)}
+      }
+    }
+    .v-card {
+      min-height: 25em;
+      padding: 2.5em;
+      border-radius: $border-card;
+      clip-path: $clip-path-2;
+      box-shadow: $sombra-card-2 !important;
+      @include media(min, small) {grid-template-columns: 60% 1fr}
+      @include media(max, small) {
+        .map {height: 20em}
+        padding: 2em clamp(1em, 2.5vw, 2.5em);
+      }
+      grid-gap: 1.5em;
+      & > aside {
+        padding-bottom: 1em;
+        p {
+          line-height: 1 !important;
+          text-transform: none !important;
+          span {
+            text-transform: none !important;
+            color: $clr-btn !important;
+          }
+        }
+        .v-btn {
+          @include absolute(auto, auto, 0, 0);
+          span {color: $clr-btn-2 !important; text-transform: none !important}
+        }
+      }
+    }
+  }
+  .contdown {
+    padding-inline: 5%;
+    &>.grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(clamp(14em, 16vw, 16.875em), 100%), 1fr));
+      grid-gap: 1.5em;
+      .v-card {
+        border-radius: $border-card;
+        box-shadow: $sombra-card !important;
+        transition: .2s $ease-return;
+        @include media(max, 627px) {margin-inline: auto}
+        @include media(max, 400px) {width: 100% !important}
+        .mapa {
+          height: 12.5em;
+          position: relative;
+          pointer-events: none;
+          overflow: hidden;
+          border-radius: $border-card;
+          img {width: 100%; height: 100%}
+          &.completado::after {background-color: rgba(21, 4, 35, 0.54)}
+          &.enCurso::after {background-color: rgba(0, 0, 0, 0.54)}
+          &.cancelado::after {background-color: rgba(38, 1, 1, 0.54)}
+          &::after {
+            content: var(--tag);
+            font-size: var(--step-em-2);
+            font-weight: 700;
+            color: $clr-btn-3 !important;
+            @include absoluteCenter;
+            display: grid;
+            place-items: center;
+            transform-origin: bottom;
+            @include animation(.2s $ease-return) {from {transform: scaleY(0)}to {transform: scaleY(1)}}
+          }
+        }
+        &:hover {transform: scale(1.05)}
+        &:hover .mapa::after {
+          transform: scaleY(0);
+          @include animation(.2s $ease-return) {from {transform: scaleY(1)}to {transform: scaleY(0)}}
+        }
+        &>aside {
+          padding: 1em;
+          .text {color: $clr-btn-2 !important}
+        }
+      }
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////////
+// // // modal pedido // // //
+//////////////////////////////////////////////////////////////////////
+#modalPedido {
+  .titulo {color: $clr-btn-2 !important; font-weight: 700}
+  @include media(min, small) {grid-template-columns: repeat(2, 1fr);grid-template-rows: repeat(2, 1fr)}
+  padding-top: 1em;
+  @include media(max, small) {padding-top: 2em}
+  section {
+    padding: 2em;
+    span:last-child .coma {display: none}
+    .grid {grid-template-columns: repeat(2, 1fr);grid-gap: 1em}
+  }
+  .first {
+    grid-row: span 2;
+    position: relative !important;
+    &::after {
+      content: "";
+      background-color: #3A383F;
+      @include absolute(auto,0,0,0);
+      width: 2px;
+      height: 90%;
+      @include media(max, small) {
+        @include absolute(0,auto,0,0);
+        width: 90%;
+        height: 2px;
+      }
+    }
+  }
+  .last {
+    position: relative !important;
+    &::after {
+      content: "";
+      @include absolute(0,0,0,auto);
+      background-color: #3A383F;
+      width: 90%;
+      height: 2px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@use "@/styles/app" as *;
+
+//////////////////////////////////////////////////////////////////////
+// // // layout // // //
+//////////////////////////////////////////////////////////////////////
+#layout {
+  background: center no-repeat fixed;
+  background-size: cover;
+  .v-main__wrap {
+    margin-left: 15%;
+    padding-bottom: clamp(6rem, 8vh, 8rem);
+  }
+}
